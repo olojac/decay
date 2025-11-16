@@ -1,8 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://28jktiuabuxs"]
+[gd_scene load_steps=4 format=3 uid="uid://28jktiuabuxs"]
 
 [ext_resource type="Texture2D" uid="uid://cxwg0kxxj20qm" path="res://main_menu.png" id="1_cmhrf"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_cmhrf"]
+
+[sub_resource type="FontFile" id="FontFile_cmhrf"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [node name="Mainmenu" type="MarginContainer"]
 anchors_preset = 15
@@ -19,3 +26,11 @@ expand_mode = 2
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_cmhrf")
 autoplay = true
+
+[node name="Button" type="Button" parent="."]
+z_index = 5
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.8417636, 0.70325387, 1)
+theme_override_fonts/font = SubResource("FontFile_cmhrf")
+text = "PLAY GAME"
