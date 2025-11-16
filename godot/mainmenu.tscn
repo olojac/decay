@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://28jktiuabuxs"]
+[gd_scene load_steps=5 format=3 uid="uid://28jktiuabuxs"]
 
 [ext_resource type="Texture2D" uid="uid://cxwg0kxxj20qm" path="res://main_menu.png" id="1_cmhrf"]
+[ext_resource type="Script" uid="uid://cc3ie2ckollc3" path="res://mainmenu.gd" id="1_wgsso"]
 [ext_resource type="AudioStream" uid="uid://cetg2nna22m2u" path="res://music/mainmenu.wav" id="2_d2nv2"]
 
 [sub_resource type="FontFile" id="FontFile_cmhrf"]
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wgsso")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
@@ -34,3 +36,5 @@ size_flags_vertical = 4
 theme_override_colors/font_color = Color(1, 0.8417636, 0.70325387, 1)
 theme_override_fonts/font = SubResource("FontFile_cmhrf")
 text = "PLAY GAME"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
