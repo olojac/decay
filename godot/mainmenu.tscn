@@ -1,41 +1,98 @@
-[gd_scene load_steps=5 format=3 uid="uid://28jktiuabuxs"]
+[gd_scene load_steps=9 format=3 uid="uid://28jktiuabuxs"]
 
-[ext_resource type="Texture2D" uid="uid://cxwg0kxxj20qm" path="res://main_menu.png" id="1_cmhrf"]
-[ext_resource type="Script" uid="uid://cc3ie2ckollc3" path="res://mainmenu.gd" id="1_wgsso"]
 [ext_resource type="AudioStream" uid="uid://cetg2nna22m2u" path="res://music/mainmenu.wav" id="2_d2nv2"]
+[ext_resource type="PackedScene" uid="uid://bsax5yos6i0mv" path="res://models/mainmenu/mainmenu_rot.tscn" id="3_igs2m"]
+[ext_resource type="PackedScene" uid="uid://banxtssbrnlkc" path="res://models/mainmenu/mainmenu_race.tscn" id="3_wgsso"]
 
-[sub_resource type="FontFile" id="FontFile_cmhrf"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
+[sub_resource type="Sky" id="Sky_d2nv2"]
 
-[node name="Mainmenu" type="MarginContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_wgsso")
-level_scene_path = "res://level.tscn"
+[sub_resource type="Environment" id="Environment_d2nv2"]
+background_mode = 2
+sky = SubResource("Sky_d2nv2")
+ambient_light_source = 3
+ambient_light_color = Color(0.59607846, 0.27450982, 1, 1)
+ssr_enabled = true
+ssr_max_steps = 65
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+fog_light_color = Color(0.84059376, 0.3549204, 0.56218725, 1)
+fog_light_energy = 0.6
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(1, 0.5019608, 0.65882355, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
-texture = ExtResource("1_cmhrf")
-expand_mode = 2
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_wgsso"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgsso"]
+transparency = 1
+albedo_color = Color(0.92156863, 0.81960785, 0.32941177, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_igs2m"]
+albedo_color = Color(1, 0.5019608, 0.5803922, 1)
+
+[node name="Mainmenu" type="Node3D"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_d2nv2")
 autoplay = true
 
-[node name="Button" type="Button" parent="."]
-z_index = 5
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.03925872, 1.2587304, -0.028738633)
+projection = 1
+current = true
+size = 1.9
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.7435301, 0.3585747, -0.5644353, 0.35906708, 0.92615384, 0.11536863, 0.5641222, -0.11689009, -0.8173756, 0, -0.09625006, 1.1208694)
+light_energy = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d2nv2")
+camera_attributes = SubResource("CameraAttributesPractical_wgsso")
+
+[node name="MainmenuRace" parent="." instance=ExtResource("3_wgsso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4476962, -2.861023e-06, 0.0039978474)
+surface_material_override/0 = SubResource("StandardMaterial3D_wgsso")
+
+[node name="MainmenuRot" parent="." instance=ExtResource("3_igs2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64681596, 0, -0.049880102)
+surface_material_override/0 = SubResource("StandardMaterial3D_igs2m")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(886, -121)
+scale = Vector2(43.555, 43.555)
+amount = 23
+lifetime = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(37.335, 1)
+scale_amount_min = 0.3
+scale_amount_max = 8.05
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(1, 0.8417636, 0.70325387, 1)
-theme_override_fonts/font = SubResource("FontFile_cmhrf")
-text = "PLAY GAME"
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
+text = "PLAY!"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09507281, 0.36684382, 1.3777738)
+light_color = Color(0, 0.76862746, 1, 1)
+light_energy = 0.945
+light_volumetric_fog_energy = 5.0
+light_size = 4.515
