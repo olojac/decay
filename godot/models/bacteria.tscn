@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu2sprgndexy7"]
+
+[ext_resource type="ArrayMesh" uid="uid://cleux2qfx4e6g" path="res://models/bacteria.res" id="1_f7dbw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_f7dbw"]
+
+[node name="Bacteria" type="MeshInstance3D"]
+mesh = ExtResource("1_f7dbw")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(0.75881094, -0.076568075, 0.6467954, 0.096757315, 0.9952991, 0.0043098424, -0.64408404, 0.059311762, 0.76265264, 1.8661733, 0.05220355, -1.271778)
+explosiveness = 1.0
+randomness = 1.0
+mesh = SubResource("SphereMesh_f7dbw")
+emission_shape = 6
+emission_ring_axis = Vector3(-1, 0, 0)
+emission_ring_height = 1.75
+emission_ring_radius = 0.05
+emission_ring_inner_radius = 0.45
+emission_ring_cone_angle = 0.0
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+radial_accel_max = 74.32
+scale_amount_min = 0.04
+scale_amount_max = 0.5
+color = Color(1, 0.36078432, 0.4117647, 1)
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="."]
+transform = Transform3D(-0.4591171, 0.21516952, 0.8619253, 0.4072161, 0.9132652, -0.0110761225, -0.7895485, 0.34590435, -0.50691634, -1.0584437, 1.0039216, -1.810608)
+explosiveness = 1.0
+randomness = 1.0
+mesh = SubResource("SphereMesh_f7dbw")
+emission_shape = 6
+emission_ring_axis = Vector3(-1, 0, 0)
+emission_ring_height = 1.75
+emission_ring_radius = 0.05
+emission_ring_inner_radius = 0.45
+emission_ring_cone_angle = 0.0
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+radial_accel_max = 74.32
+scale_amount_min = 0.04
+scale_amount_max = 0.5
+color = Color(1, 0.36078432, 0.4117647, 1)

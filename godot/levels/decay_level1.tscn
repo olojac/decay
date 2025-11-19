@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://068y8or8vxns"]
+
+[ext_resource type="PackedScene" uid="uid://bu2sprgndexy7" path="res://models/bacteria.tscn" id="1_gqyah"]
+
+[node name="DecayLevel1" type="Node3D"]
+
+[node name="Bacteria" parent="." instance=ExtResource("1_gqyah")]
+transform = Transform3D(-0.09672359, -0.41643733, -0.9040054, 0.45688805, 0.78833884, -0.41203946, 0.8842502, -0.45288312, 0.11401382, 0, 0, 0)
