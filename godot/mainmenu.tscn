@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://28jktiuabuxs"]
+[gd_scene load_steps=8 format=3 uid="uid://28jktiuabuxs"]
 
 [ext_resource type="AudioStream" uid="uid://cetg2nna22m2u" path="res://music/mainmenu.wav" id="2_d2nv2"]
 [ext_resource type="PackedScene" uid="uid://bsax5yos6i0mv" path="res://models/mainmenu/mainmenu_rot.tscn" id="3_igs2m"]
@@ -24,13 +24,6 @@ volumetric_fog_albedo = Color(1, 0.5019608, 0.65882355, 1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_wgsso"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgsso"]
-transparency = 1
-albedo_color = Color(0.92156863, 0.81960785, 0.32941177, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_igs2m"]
-albedo_color = Color(1, 0.5019608, 0.5803922, 1)
-
 [node name="Mainmenu" type="Node3D"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -44,20 +37,18 @@ current = true
 size = 1.9
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.7435301, 0.3585747, -0.5644353, 0.35906708, 0.92615384, 0.11536863, 0.5641222, -0.11689009, -0.8173756, 0, -0.09625006, 1.1208694)
-light_energy = 2.0
+transform = Transform3D(0.6720208, 0.6079316, -0.42285654, 0.6889781, -0.30394995, 0.65796936, 0.27147287, -0.7335075, -0.62311226, 0, -0.09625006, 1.1208694)
+light_energy = 1.245
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_d2nv2")
 camera_attributes = SubResource("CameraAttributesPractical_wgsso")
 
 [node name="MainmenuRace" parent="." instance=ExtResource("3_wgsso")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4476962, -2.861023e-06, 0.0039978474)
-surface_material_override/0 = SubResource("StandardMaterial3D_wgsso")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44763106, 1.1920929e-06, -0.0009804815)
 
 [node name="MainmenuRot" parent="." instance=ExtResource("3_igs2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64681596, 0, -0.049880102)
-surface_material_override/0 = SubResource("StandardMaterial3D_igs2m")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(886, -121)
