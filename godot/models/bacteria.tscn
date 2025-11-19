@@ -1,44 +1,63 @@
 [gd_scene load_steps=3 format=3 uid="uid://bu2sprgndexy7"]
 
 [ext_resource type="ArrayMesh" uid="uid://cleux2qfx4e6g" path="res://models/bacteria.res" id="1_f7dbw"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_f7dbw"]
+[ext_resource type="ArrayMesh" uid="uid://ciqomxl1586ni" path="res://models/bacteria_disease.res" id="2_i08r2"]
 
 [node name="Bacteria" type="MeshInstance3D"]
 mesh = ExtResource("1_f7dbw")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(0.75881094, -0.076568075, 0.6467954, 0.096757315, 0.9952991, 0.0043098424, -0.64408404, 0.059311762, 0.76265264, 1.8661733, 0.05220355, -1.271778)
-explosiveness = 1.0
 randomness = 1.0
-mesh = SubResource("SphereMesh_f7dbw")
-emission_shape = 6
-emission_ring_axis = Vector3(-1, 0, 0)
-emission_ring_height = 1.75
-emission_ring_radius = 0.05
-emission_ring_inner_radius = 0.45
-emission_ring_cone_angle = 0.0
-spread = 0.0
+lifetime_randomness = 0.15
+mesh = ExtResource("2_i08r2")
+spread = 21.64
 gravity = Vector3(0, 0, 0)
-radial_accel_max = 74.32
+initial_velocity_min = 0.1
+initial_velocity_max = 2.0
+linear_accel_min = 1.0
+linear_accel_max = 5.0
 scale_amount_min = 0.04
 scale_amount_max = 0.5
 color = Color(1, 0.36078432, 0.4117647, 1)
 
 [node name="CPUParticles3D2" type="CPUParticles3D" parent="."]
-transform = Transform3D(-0.4591171, 0.21516952, 0.8619253, 0.4072161, 0.9132652, -0.0110761225, -0.7895485, 0.34590435, -0.50691634, -1.0584437, 1.0039216, -1.810608)
-explosiveness = 1.0
-randomness = 1.0
-mesh = SubResource("SphereMesh_f7dbw")
-emission_shape = 6
-emission_ring_axis = Vector3(-1, 0, 0)
-emission_ring_height = 1.75
-emission_ring_radius = 0.05
-emission_ring_inner_radius = 0.45
-emission_ring_cone_angle = 0.0
-spread = 0.0
+transform = Transform3D(-0.4591171, 0.21516952, 0.8619253, 0.4072161, 0.9132652, -0.0110761225, -0.7895485, 0.34590435, -0.50691634, -1.0693308, 1.0039216, -1.810608)
+mesh = ExtResource("2_i08r2")
+spread = 42.3
 gravity = Vector3(0, 0, 0)
-radial_accel_max = 74.32
+initial_velocity_min = 0.01
+initial_velocity_max = 0.1
+radial_accel_min = 5.0
+radial_accel_max = 10.0
+scale_amount_min = 0.04
+scale_amount_max = 0.5
+color = Color(1, 0.36078432, 0.4117647, 1)
+
+[node name="CPUParticles3D3" type="CPUParticles3D" parent="."]
+transform = Transform3D(0.5430569, -0.049163103, -0.83825624, 0.09675734, 0.9952992, 0.004309847, 0.8341028, -0.083447866, 0.54526144, 1.1161857, 0.6751671, 2.3962274)
+randomness = 1.0
+lifetime_randomness = 0.15
+mesh = ExtResource("2_i08r2")
+spread = 21.64
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 2.0
+linear_accel_min = 1.0
+linear_accel_max = 5.0
+scale_amount_min = 0.04
+scale_amount_max = 0.5
+color = Color(1, 0.36078432, 0.4117647, 1)
+
+[node name="CPUParticles3D4" type="CPUParticles3D" parent="."]
+transform = Transform3D(0.39230376, 0.41283518, 0.82198954, -0.26991594, 0.9059527, -0.3261845, -0.87934285, -0.09390479, 0.4668393, 0.48206866, -0.21797001, -1.8015484)
+mesh = ExtResource("2_i08r2")
+spread = 42.3
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.01
+initial_velocity_max = 0.1
+radial_accel_min = 5.0
+radial_accel_max = 10.0
 scale_amount_min = 0.04
 scale_amount_max = 0.5
 color = Color(1, 0.36078432, 0.4117647, 1)

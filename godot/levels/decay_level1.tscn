@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://068y8or8vxns"]
+[gd_scene load_steps=4 format=3 uid="uid://068y8or8vxns"]
 
 [ext_resource type="PackedScene" uid="uid://bu2sprgndexy7" path="res://models/bacteria.tscn" id="1_gqyah"]
+
+[sub_resource type="Environment" id="Environment_gqyah"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u77vy"]
 
 [node name="DecayLevel1" type="Node3D"]
 
 [node name="Bacteria" parent="." instance=ExtResource("1_gqyah")]
 transform = Transform3D(-0.09672359, -0.41643733, -0.9040054, 0.45688805, 0.78833884, -0.41203946, 0.8842502, -0.45288312, 0.11401382, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gqyah")
+camera_attributes = SubResource("CameraAttributesPractical_u77vy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.86504626, -0.5015352, -0.012537565, 0.49871755, 0.8569322, 0.13018396, -0.05454802, -0.11886789, 0.99141055, -1.9327043, 3.3127248, -0.3623345)
